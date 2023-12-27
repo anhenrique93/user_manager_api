@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace TaskCircle.UserManagerApi.DTOs
 {
     public class AddUserDTO
     {
+        public int IdUser { get; set; }
+
         [Required(ErrorMessage = "The First Name is Required")]
         [MinLength(3)]
         [MaxLength(100)]
@@ -18,8 +21,8 @@ namespace TaskCircle.UserManagerApi.DTOs
         [EmailAddress(ErrorMessage = "It has to be an email")]
         public string? Email { get; set; }
 
-        [MinLength(12)]
-        [MaxLength(12)]
+        [MinLength(13)]
+        [MaxLength(13)]
         public string? Phone { get; set; }
 
         [MinLength(5)]

@@ -49,9 +49,6 @@ public class UserService : IUserService
         {
             userEntity.Gender = new Gender { IdGender = (int)userEntity.IdGender };
         }
-
-       
-
         await _userRepository?.Update(userEntity);
     }
 

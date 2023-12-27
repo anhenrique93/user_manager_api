@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TaskCircle.UserManagerApi</name>
+    </assembly>
+    <members>
+        <member name="M:TaskCircle.UserManagerApi.Controllers.UsersController.GetAll">
+            <summary>
+            Get All Users
+            </summary>
+            <response code="200">Ok</response>
+            <response code="404">Users not foud</response>
+            <returns>User</returns>
+        </member>
+        <member name="M:TaskCircle.UserManagerApi.Controllers.UsersController.GetById(System.Int32)">
+            <summary>
+            Get User by Id
+            </summary>
+            <param name="email" example="example@email.com">The User email</param>
+            <param name="password" example="password123!">The User password</param>
+            <response code="200">Ok</response>
+            <response code="404">User not found</response>
+            <returns>User</returns>
+        </member>
+        <member name="M:TaskCircle.UserManagerApi.Controllers.UsersController.Post(TaskCircle.UserManagerApi.DTOs.AddUserDTO)">
+            <summary>
+            Register a User
+            </summary>
+            <param name="email" example="example@email.com">The User email</param>
+            <param name="password" example="password123!">The User password</param>
+            <response code="200">Registered User</response>
+            <response code="400">Inalid Data</response>
+            <response code="500">An account with this email already exists.</response>
+            <returns>User</returns>
+        </member>
+        <member name="M:TaskCircle.UserManagerApi.Controllers.UsersController.Put(System.Int32,TaskCircle.UserManagerApi.DTOs.UpdateUserDTO)">
+            <summary>
+            Update a User
+            </summary>
+            <param name="First NameName">The User First Name</param>
+            <param name="Last NameName">The User Last Name</param>
+            <param name="Email" example="example@email.com">The User email</param>
+            <param name="Phone" example="+351999999999">The Phone Number</param>
+            <param name="Adress" example="City Name">The Adress</param>
+            <param name="Gender IdId" example="1 for masculine; 2 for feminine">The Adress</param>
+            <response code="200">Updated User</response>
+            <response code="400">The email does not meet the requirements.</response>
+            <response code="500">An account with this email already exists.</response>
+            <returns>User</returns>
+        </member>
+        <member name="M:TaskCircle.UserManagerApi.Controllers.UsersController.Delete(System.Int32)">
+            <summary>
+            Delete User
+            </summary>
+            <response code="200">User deleted</response>
+            <response code="404">User not found!</response>
+            /// <response code="401">Unnouthorized!</response>
+            <returns>string</returns>
+        </member>
+        <member name="T:TaskCircle.UserManagerApi.Models.Gender">
+            <summary>
+            This clas  represents a User Gender
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.Gender.IdGender">
+            <summary>
+            Gender Id
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.Gender.Name">
+            <summary>
+            Gender Names
+            </summary>
+        </member>
+        <member name="T:TaskCircle.UserManagerApi.Models.User">
+            <summary>
+            This clas represent an User
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.IdUser">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.FirstName">
+            <summary>
+            User First Name
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.LastName">
+            <summary>
+            User Last Name
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.Email">
+            <summary>
+            User Email
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.Phone">
+            <summary>
+            User Phone
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.Address">
+            <summary>
+            User Address
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.Gender">
+            <summary>
+            User Geder
+            </summary>
+        </member>
+        <member name="P:TaskCircle.UserManagerApi.Models.User.IdGender">
+            <summary>
+            User Gender Id
+            1 - Masculine
+            2 - Feminine
+            </summary>
+        </member>
+    </members>
+</doc>

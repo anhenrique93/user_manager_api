@@ -91,17 +91,18 @@ public class UserRepository : IUserRepository
                 }
             }
         }
+
         return user;
     }
-
     public async Task<User> Create(User Entity)
     {
-
+        Console.WriteLine(Entity.IdUser);
         using (var connect = new NpgsqlConnection(_connection?.PostgreSQLString))
         {
             await connect.OpenAsync();
-            using (var cmd = new NpgsqlCommand("CALL addUser(@firstName, @lastName, @email, @phone, @address, @genderId)", connect))
+            using (var cmd = new NpgsqlCommand("CALL addUser(@id, @firstName, @lastName, @email, @phone, @address, @genderId)", connect))
             {
+                cmd.Parameters.AddWithValue("id", Entity.IdUser);
                 cmd.Parameters.AddWithValue("firstName", Entity.FirstName);
                 cmd.Parameters.AddWithValue("lastName", Entity.LastName);
                 cmd.Parameters.AddWithValue("email", Entity.Email);
@@ -115,6 +116,7 @@ public class UserRepository : IUserRepository
 
         return Entity;
     }
+
 
     public async Task<User> Update(User Entity)
     {

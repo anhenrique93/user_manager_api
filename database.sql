@@ -38,6 +38,7 @@ DELETE FROM "USER" WHERE Id = ?;
 --User
 --AddUser
 CREATE OR REPLACE PROCEDURE addUser(
+    p_id INT,
     p_firstName VARCHAR(255),
     p_lastName VARCHAR(255),
     p_email VARCHAR(255),
@@ -48,53 +49,51 @@ CREATE OR REPLACE PROCEDURE addUser(
 LANGUAGE plpgsql
 AS $$
 BEGIN
-    INSERT INTO "USER"(FirstName, LastName, Email, Phone, Address, GenderId) 
-    VALUES (p_firstName, p_lastName, p_email, p_phone, p_address, p_genderId);
+    INSERT INTO "USER"(Id, FirstName, LastName, Email, Phone, Address, GenderId) 
+    VALUES (p_id, p_firstName, p_lastName, p_email, p_phone, p_address, p_genderId);
 END;
 $$;
 
 --GetAllUsers
 CREATE OR REPLACE FUNCTION getAllUsers()
 RETURNS TABLE (
-    Id INT,
-    FirstName VARCHAR(255),
-    LastName VARCHAR(255),
-    Email VARCHAR(255),
-    Phone VARCHAR(255),
-    Address VARCHAR(255),
-    GenderId INT,
-    Gender VARCHAR(255)
+    Id int,
+    FirstName varchar,
+    LastName varchar,
+    Email varchar,
+    Phone varchar,
+    Address varchar,
+    GenderId int,
+    Gender varchar
 )
-LANGUAGE plpgsql
 AS $$
 BEGIN
-    RETURN QUERY SELECT "USER".Id, "USER".FirstName, "USER".LastName, "USER".Email, "USER".Phone, "USER".Address, Gender.Id, Gender.Gender 
-    FROM "USER" 
-    INNER JOIN Gender ON "USER".GenderId = Gender.Id;
-END;
-$$;
+    RETURN QUERY 
+    SELECT U.*, G.Gender FROM "USER" U
+    LEFT JOIN Gender G ON U.GenderId = G.Id;
+END; $$
+LANGUAGE plpgsql;
 
 --Select user by id
-CREATE OR REPLACE FUNCTION getUserById(p_id INT)
+CREATE OR REPLACE FUNCTION getUserById(p_id int)
 RETURNS TABLE (
-    Id INT,
-    FirstName VARCHAR(255),
-    LastName VARCHAR(255),
-    Email VARCHAR(255),
-    Phone VARCHAR(255),
-    Address VARCHAR(255),
-    GenderId INT,
-    Gender VARCHAR(255)
+    Id int,
+    FirstName varchar,
+    LastName varchar,
+    Email varchar,
+    Phone varchar,
+    Address varchar,
+    GenderId int,
+    Gender varchar
 )
-LANGUAGE plpgsql
 AS $$
 BEGIN
-    RETURN QUERY SELECT "USER".Id, "USER".FirstName, "USER".LastName, "USER".Email, "USER".Phone, "USER".Address, Gender.Id, Gender.Gender 
-    FROM "USER" 
-    INNER JOIN Gender ON "USER".GenderId = Gender.Id
-    WHERE "USER".Id = p_id;
-END;
-$$;
+    RETURN QUERY 
+    SELECT U.*, G.Gender FROM "USER" U
+    LEFT JOIN Gender G ON U.GenderId = G.Id
+    WHERE U.Id = p_id;
+END; $$
+LANGUAGE plpgsql;
 
 --AddUser
 CREATE OR REPLACE PROCEDURE addUser(

@@ -6,6 +6,7 @@ namespace TaskCircle.UserManagerApi.DTOs;
 
 public class UserDTO
 {
+    [JsonIgnore]
     public int IdUser { get; set; }
 
     public string? FirstName { get; set; }
