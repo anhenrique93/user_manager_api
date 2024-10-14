@@ -1,6 +1,6 @@
 # Gestão de utilizadores
 
-Este microserviço de gestão de utilizadores foi desenvolvido em C# usando PostgreSQL e ADO.NET. Foi concebido para ser simples, eficiente e flexível. A funcionalidade principal é armazenar e gerir dados de utilizadores.
+Este serviço de gestão de utilizadores foi desenvolvido em C# usando PostgreSQL e ADO.NET. Foi concebido para ser simples, eficiente e flexível. A funcionalidade principal é armazenar e gerir dados de utilizadores.
 
 A API recebe dados do utilizador, como nome, endereço de e-mail, número de telefone, etc., e armazena essas informações numa base de dados. Por predefinição, a API está configurada para usar PostgreSQL, mas pode ser facilmente modificada para que funcione com a base de dados de preferência do utilizador.
 
@@ -11,7 +11,7 @@ As SQL queries para criação das tabelas encontram-se dentro do ficheiro ***dat
 
 # User Management
 
-This user management microservice was developed in C# using PostgreSQL and ADO.NET. It was designed to be simple, efficient, and flexible. The main functionality is to store and manage user data.
+This user management service was developed in C# using PostgreSQL and ADO.NET. It was designed to be simple, efficient, and flexible. The main functionality is to store and manage user data.
 
 The API receives user data, such as name, email address, phone number, etc., and stores this information in a database. By default, the API is configured to use PostgreSQL, but it can be easily modified to work with the user’s preferred database.
 
